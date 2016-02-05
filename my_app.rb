@@ -32,10 +32,17 @@ class MyApp < Sinatra::Base
     @p1_att_p2 =  @game.attack(@game.player_2)
     @player_1_name = @game.player_1.name
     @player_2_name = @game.player_2.name
-    # @player_2_hp = $game.attack($player_2)
-    # @player_1.attack(@player_2)
     erb :attack
   end
+
+  get '/attack1' do
+    @game = $game
+    @p2_att_p1 =  @game.attack(@game.player_1)
+    @player_1_name = @game.player_1.name
+    @player_2_name = @game.player_2.name
+    erb :attack1
+  end
+
 
 
   run! if app_file == $0
